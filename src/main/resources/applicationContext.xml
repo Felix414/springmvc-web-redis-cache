@@ -60,6 +60,9 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
     </bean>  
+    
+    <import resource="classpath:redis.xml"/>
+     
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">  
         <tx:attributes>  
             <tx:method name="add*" propagation="REQUIRED" />  
@@ -89,4 +92,6 @@
         <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />  
     </aop:config>  
      -->
+     
+    
 </beans>           

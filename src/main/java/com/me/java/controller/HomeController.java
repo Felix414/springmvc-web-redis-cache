@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.me.java.inter.UserInterface;
 import com.me.java.model.Article;
+import com.me.java.model.User;
+import com.me.java.service.UserService;
 import com.me.java.util.PageInfo;
 
 
@@ -21,9 +23,13 @@ import com.me.java.util.PageInfo;
 public class HomeController {
 	@Autowired
 	private UserInterface userInterface;
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping("/index")
-	public String index() {
+	public String index(Map<String, Object> model) {
+		User user = userService.findUserById(1);
+		model.put("user", user);
 		return "home/index";
 	}
 	
@@ -70,4 +76,7 @@ public class HomeController {
 		
 		return "home/pageList";
 	}
+	
+	
+	
 }

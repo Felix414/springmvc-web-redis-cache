@@ -3,11 +3,11 @@ package com.me.java.inter;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Service;
 
 import com.me.java.model.Article;
 import com.me.java.model.User;
 import com.me.java.util.PageInfo;
-
 
 
 public interface UserInterface {
